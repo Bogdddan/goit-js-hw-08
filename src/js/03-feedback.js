@@ -11,11 +11,11 @@ const formData = {};
 form.addEventListener('submit' , onFormSubmit);
 messageTextarea.addEventListener('input' , throttle(onTextarea , 500));
 
+
 form.addEventListener('input', e =>{
     formData[e.target.name] = e.target.value;
     const formDataJSON = JSON.stringify(formData);
-    formData.push(formDataJSON);
-    const parswFormData = JSON.parse(formData);
+    const parswFormData = JSON.parse(formDataJSON);
 
     console.log(parswFormData);
 });
