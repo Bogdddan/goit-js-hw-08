@@ -6,8 +6,19 @@ const messageTextarea = form.querySelector('textarea[name="message"]');
 
 const STORAGE_KEY = "feedback-form-state";
 
+const formData = {};
+
 form.addEventListener('submit' , onFormSubmit);
 messageTextarea.addEventListener('input' , throttle(onTextarea , 500));
+
+form.addEventListener('input', e =>{
+    formData[e.target.name] = e.target.value;
+    const formDataJSON = JSON.stringify(formData);
+    formData.push(formDataJSON);
+    const parswFormData = JSON.parse(formData);
+
+    console.log(parswFormData);
+});
 
 fillTextarea();
 
