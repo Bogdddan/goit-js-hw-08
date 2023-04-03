@@ -17,6 +17,7 @@ const liInUl = galleryItems.map(item =>
         src='${item.preview}'
         data-source='${item.original}'
         alt='${item.description}'
+        title='${item.description}'
     />
     </a>
 </li>
@@ -24,7 +25,9 @@ const liInUl = galleryItems.map(item =>
 
 ul.insertAdjacentHTML('beforeend' , liInUl);
 
-const gallery = new SimpleLightbox('.gallery a');
+const gallery = new SimpleLightbox('.gallery a', {
+    captionDelay: 250,
+});
 
 
 console.log(galleryItems);
