@@ -27,11 +27,9 @@ form.addEventListener('submit', e => {
 const savedFormData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 if (savedFormData) {
-    emailInput.value = savedFormData.email;
-    messageTextarea.value = savedFormData.message;
+    emailInput.value = savedFormData.email || '';
+    messageTextarea.value = savedFormData.message || '';
 }
-
-
 
 function onMessageTextarea() {
     const formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
