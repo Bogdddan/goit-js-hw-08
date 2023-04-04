@@ -10,7 +10,8 @@ const STORAGE_KEY = "feedback-form-state";
 messageTextarea.addEventListener('input', throttle(onMessageTextarea ,500));
 emailInput.addEventListener('input', throttle(onEmailInput ,500));
 
-const formData = {};
+const formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || { email: "", message: "" };
+
 
 form.addEventListener('input', e => {
     formData[e.target.name] = e.target.value;
